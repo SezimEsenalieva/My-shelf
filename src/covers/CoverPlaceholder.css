@@ -1,0 +1,41 @@
+.cover-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  aspect-ratio: 2 / 3;
+  border-radius: 4px;
+  overflow: hidden;
+  text-align: center;
+  /* Лёгкий «переплёт» слева и блик — чтобы заглушка выглядела как книга */
+  background-image:
+    linear-gradient(90deg, rgb(0 0 0 / 0.18) 0 6%, rgb(255 255 255 / 0.08) 6% 9%, transparent 9%),
+    linear-gradient(160deg, rgb(255 255 255 / 0.12), transparent 60%);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+}
+
+.cover-placeholder--small {
+  width: 48px;
+  padding: 4px 2px 4px 5px;
+  font-size: 0.5rem;
+  line-height: 1.15;
+}
+
+.cover-placeholder--large {
+  width: min(60vw, 240px);
+  padding: 16px 12px 16px 20px;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.cover-placeholder__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  font-weight: 600;
+  /* Переносим длинные слова по слогам, а не посреди буквы */
+  overflow-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}

@@ -1,0 +1,76 @@
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 24px;
+}
+
+.app__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  background: var(--bg);
+}
+
+.app__title {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.app__count {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.app__loading {
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.app__footer {
+  margin-top: 32px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Пустая полка: пустой шкаф и приглашение добавить книгу */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 8vh;
+  text-align: center;
+}
+
+.empty__bookcase {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  width: min(100%, 280px);
+  padding: 56px 12px 8px;
+  border: 10px solid var(--wood);
+  border-bottom-width: 14px;
+  border-radius: 4px;
+  background: var(--bookcase-back);
+}
+
+.empty__board {
+  height: 10px;
+  border-radius: 2px;
+  background: linear-gradient(var(--wood), var(--wood-dark));
+  box-shadow: 0 3px 4px rgb(0 0 0 / 0.25);
+}
+
+.empty__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  max-width: 24ch;
+}

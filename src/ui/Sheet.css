@@ -1,0 +1,46 @@
+.sheet {
+  /* <dialog> на весь экран, сама панель прижата к низу */
+  width: 100%;
+  max-width: 560px;
+  max-height: 100dvh;
+  margin: auto auto 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text);
+}
+
+.sheet::backdrop {
+  background: rgb(0 0 0 / 0.45);
+}
+
+.sheet__panel {
+  background: var(--surface);
+  border-radius: 16px 16px 0 0;
+  padding: 8px 16px calc(16px + env(safe-area-inset-bottom));
+  box-shadow: 0 -8px 24px rgb(0 0 0 / 0.2);
+}
+
+.sheet__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sheet__title {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sheet[open] .sheet__panel {
+    animation: sheet-up 220ms ease-out;
+  }
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+}
