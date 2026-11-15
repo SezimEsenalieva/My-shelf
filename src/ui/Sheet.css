@@ -21,6 +21,12 @@
   box-shadow: 0 -8px 24px rgb(0 0 0 / 0.2);
 }
 
+.sheet__panel--tall {
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - 24px - env(safe-area-inset-top));
+}
+
 .sheet__header {
   display: flex;
   align-items: center;

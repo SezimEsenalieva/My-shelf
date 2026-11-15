@@ -1,4 +1,5 @@
-import type { ItemType } from '../domain/types'
+import type { ItemSource, ItemType } from '../domain/types'
+import type { SearchScope } from '../sources/types'
 
 // Все тексты интерфейса — здесь. Чтобы добавить другой язык,
 // достаточно создать такой же файл (например, ky.ts) с теми же ключами.
@@ -13,9 +14,23 @@ const types: Record<ItemType, string> = {
   other: 'Другое',
 }
 
+const sources: Record<ItemSource, string> = {
+  manual: 'Вручную',
+  openlibrary: 'Open Library',
+  googlebooks: 'Google Books',
+  anilist: 'AniList',
+}
+
+const scopes: Record<SearchScope, string> = {
+  all: 'Всё',
+  books: 'Книги',
+  comics: 'Комиксы и манга',
+}
+
 export const ru = {
   appName: 'Моя полка',
   types,
+  sources,
   common: {
     close: 'Закрыть',
     loading: 'Загрузка…',
@@ -34,6 +49,31 @@ export const ru = {
   },
   footer: {
     builtAt: 'Версия от',
+  },
+  search: {
+    title: 'Поиск',
+    scopes,
+    scopeLabel: 'Где искать',
+    inputLabel: 'Название или автор',
+    inputPlaceholder: 'Название или автор',
+    hint: 'Введите хотя бы 2 буквы',
+    searching: 'Ищу…',
+    nothingFound: 'Ничего не нашлось',
+    offline: 'Нет подключения. Поиск заработает, когда появится интернет.',
+    failed: (names: string) => `Не ответили: ${names}`,
+    resultsLabel: 'Результаты поиска',
+    manualAdd: 'Добавить вручную',
+    back: 'Назад',
+  },
+  confirm: {
+    duplicate: 'Уже на полке',
+    duplicateHint: 'Такая запись уже есть. Можно добавить ещё раз, например другое издание.',
+    add: 'Поставить на полку',
+    addAnyway: 'Всё равно добавить',
+    saving: 'Сохраняю…',
+    year: 'Год',
+    source: 'Источник',
+    pages: 'Страниц',
   },
   add: {
     title: 'Добавить вручную',

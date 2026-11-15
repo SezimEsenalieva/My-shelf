@@ -1,6 +1,6 @@
 import { colorFromText } from '../domain/color'
 import type { NewShelfItem, ShelfItem, ShelfItemChanges } from '../domain/types'
-import { createDb, type ShelfDb } from './db'
+import { createDb, fromStored, toStored, type ShelfDb } from './db'
 
 /**
  * «Репозиторий» — единственное место, через которое экраны читают и меняют полку.
@@ -24,11 +24,13 @@ export class DexieShelfRepository implements ShelfRepository {
 
   /** Все записи, новые сверху. */
   async list(): Promise<ShelfItem[]> {
-    return this.db.items.orderBy('addedAt').reverse().toArray()
+    const rows = await this.db.items.orderBy('addedAt').reverse().toArray()
+    return rows.map(fromStored)
   }
 
   async get(id: string): Promise<ShelfItem | undefined> {
-    return this.db.items.get(id)
+    const row = await this.db.items.get(id)
+    return row && fromStored(row)
   }
 
   async add(input: NewShelfItem): Promise<ShelfItem> {
@@ -44,7 +46,7 @@ export class DexieShelfRepository implements ShelfRepository {
       spineColor: input.spineColor ?? colorFromText(title),
       addedAt: Date.now(),
     }
-    await this.db.items.add(item)
+    await this.db.items.add(await toStored(item))
     return item
   }
 

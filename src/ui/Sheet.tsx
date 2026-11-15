@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from 'react'
+import { useLayoutEffect, useRef, type ReactNode } from 'react'
 import { t } from '../i18n'
 import './Sheet.css'
 
@@ -7,6 +7,8 @@ interface SheetProps {
   title: string
   onClose: () => void
   children: ReactNode
+  /** Высокая панель почти на весь экран (для поиска). */
+  tall?: boolean
 }
 
 /**
@@ -14,13 +16,19 @@ interface SheetProps {
  * Построена на встроенном элементе <dialog>: он сам удерживает фокус внутри
  * и правильно озвучивается VoiceOver.
  */
-export function Sheet({ open, title, onClose, children }: SheetProps) {
+export function Sheet({ open, title, onClose, children, tall = false }: SheetProps) {
   const ref = useRef<HTMLDialogElement>(null)
 
-  useEffect(() => {
+  // useLayoutEffect срабатывает сразу, ещё внутри нажатия на кнопку, —
+  // только так iPhone соглашается показать клавиатуру для поля ввода.
+  useLayoutEffect(() => {
     const dialog = ref.current
     if (!dialog) return
-    if (open && !dialog.open) dialog.showModal()
+    if (open && !dialog.open) {
+      dialog.showModal()
+      // <dialog> сам ставит фокус на первую кнопку; переносим его на нужное поле.
+      dialog.querySelector<HTMLElement>('[data-autofocus]')?.focus()
+    }
     if (!open && dialog.open) dialog.close()
   }, [open])
 
@@ -39,7 +47,7 @@ export function Sheet({ open, title, onClose, children }: SheetProps) {
       }}
     >
       {open && (
-        <div className="sheet__panel">
+        <div className={`sheet__panel${tall ? ' sheet__panel--tall' : ''}`}>
           <header className="sheet__header">
             <h2 className="sheet__title">{title}</h2>
             <button

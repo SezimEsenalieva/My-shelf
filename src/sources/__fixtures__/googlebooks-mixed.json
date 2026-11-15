@@ -1,0 +1,43 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 3,
+  "items": [
+    {
+      "id": "gb-master-1",
+      "volumeInfo": {
+        "title": "Мастер и Маргарита",
+        "authors": ["Михаил Булгаков"],
+        "publishedDate": "2014-05-01",
+        "pageCount": 512,
+        "categories": ["Fiction"],
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=gb-master-1&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=gb-master-1&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        }
+      }
+    },
+    {
+      "id": "gb-onepiece-1",
+      "volumeInfo": {
+        "title": "One Piece, Vol. 1",
+        "subtitle": "Romance Dawn",
+        "authors": ["Eiichiro Oda"],
+        "publishedDate": "2003",
+        "pageCount": 216,
+        "categories": ["Comics & Graphic Novels / Manga / Action & Adventure"]
+      }
+    },
+    {
+      "id": "gb-watchmen",
+      "volumeInfo": {
+        "title": "Watchmen",
+        "authors": ["Alan Moore", "Dave Gibbons"],
+        "publishedDate": "1987",
+        "categories": ["Comics & Graphic Novels"],
+        "imageLinks": {
+          "thumbnail": "http://books.google.com/books/content?id=gb-watchmen&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        }
+      }
+    }
+  ]
+}

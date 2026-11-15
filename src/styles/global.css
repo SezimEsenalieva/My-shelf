@@ -10,6 +10,7 @@
   --accent-text: #ffffff;
   --danger: #b3261e;
   --badge-bg: #e8ddcd;
+  --warning-bg: #f6e2b8;
   --wood: #8a5a36;
   --wood-dark: #6b4426;
   --bookcase-back: #e6d6bf;
@@ -36,6 +37,7 @@
     --accent-text: #1c1814;
     --danger: #f2a49b;
     --badge-bg: #3a3129;
+    --warning-bg: #4a3a1c;
     --wood: #5e3d24;
     --wood-dark: #442b18;
     --bookcase-back: #2a2119;
@@ -79,6 +81,21 @@ button {
 .button--primary {
   background: var(--accent);
   color: var(--accent-text);
+}
+
+.button--secondary {
+  background: var(--badge-bg);
+  color: var(--text);
+}
+
+.text-button {
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0 4px;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-size: 1rem;
 }
 
 .button:disabled {
