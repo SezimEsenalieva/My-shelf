@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from './app/App'
+import { requestPersistentStorage } from './storage/persist'
 import './styles/global.css'
 
 const root = document.getElementById('root')
@@ -11,3 +12,6 @@ createRoot(root).render(
     <App />
   </StrictMode>,
 )
+
+// Просим браузер не удалять данные полки.
+void requestPersistentStorage()

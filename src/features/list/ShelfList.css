@@ -1,0 +1,41 @@
+.shelf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shelf-list__row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 88px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.shelf-list__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+}
+
+.shelf-list__title {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.shelf-list__author {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.type-badge {
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: var(--badge-bg);
+  color: var(--text);
+}

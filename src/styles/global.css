@@ -1,10 +1,18 @@
 /* Цвета светлой темы. Тёмная тема переопределяет их ниже. */
 :root {
   --bg: #f4ede2;
+  --surface: #fffaf3;
+  --input-bg: #ffffff;
   --text: #2b2520;
   --text-muted: #6f645a;
+  --border: #e2d7c8;
+  --accent: #b5523b;
+  --accent-text: #ffffff;
+  --danger: #b3261e;
+  --badge-bg: #e8ddcd;
   --wood: #8a5a36;
   --wood-dark: #6b4426;
+  --bookcase-back: #e6d6bf;
 
   color-scheme: light dark;
   font-family:
@@ -13,15 +21,24 @@
   font-size: 16px;
   line-height: 1.4;
   -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #1c1814;
+    --surface: #2a241e;
+    --input-bg: #1f1a16;
     --text: #f1e9de;
     --text-muted: #b3a797;
+    --border: #3d352d;
+    --accent: #d97a5f;
+    --accent-text: #1c1814;
+    --danger: #f2a49b;
+    --badge-bg: #3a3129;
     --wood: #5e3d24;
     --wood-dark: #442b18;
+    --bookcase-back: #2a2119;
   }
 }
 
@@ -45,49 +62,51 @@ body {
     env(safe-area-inset-left);
 }
 
-.placeholder {
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 24px 16px;
-  text-align: center;
+button {
+  font: inherit;
+  cursor: pointer;
 }
 
-.placeholder h1 {
-  margin: 0 0 16px;
-  font-size: 2rem;
-}
-
-.placeholder__shelf {
-  display: flex;
-  align-items: flex-end;
-  gap: 3px;
-  padding: 0 24px;
-  border-bottom: 10px solid var(--wood);
-  box-shadow: 0 6px 0 -2px var(--wood-dark);
-}
-
-.placeholder__shelf span {
-  display: block;
-  border-radius: 3px 3px 0 0;
-}
-
-.placeholder__title {
-  margin: 24px 0 0;
-  font-size: 1.2rem;
+/* Кнопки: зона нажатия не меньше 44×44 px */
+.button {
+  min-height: 44px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
   font-weight: 600;
 }
 
-.placeholder__subtitle,
-.placeholder__build {
-  margin: 0;
-  max-width: 32ch;
-  color: var(--text-muted);
+.button--primary {
+  background: var(--accent);
+  color: var(--accent-text);
 }
 
-.placeholder__build {
-  font-size: 0.85rem;
+.button:disabled {
+  opacity: 0.6;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.icon-button--accent {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
