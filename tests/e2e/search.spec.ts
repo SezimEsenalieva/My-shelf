@@ -1,3 +1,4 @@
+import { showList } from './helpers.ts'
 import { expect, test, type Page } from '@playwright/test'
 import { goOffline, mockCatalogs } from './catalogs.ts'
 
@@ -36,7 +37,7 @@ test.describe('поиск в интернете', () => {
     await dialog.getByRole('button', { name: 'Поставить на полку' }).click()
     await expect(dialog).toBeHidden()
 
-    const row = page.getByRole('list', { name: 'Прочитанное' }).getByRole('listitem').first()
+    const row = (await showList(page)).getByRole('listitem').first()
     await expect(row).toContainText('Мастер и Маргарита')
     // Обложка сохранена копией и показана картинкой, а не заглушкой.
     await expect(row.locator('img.cover')).toBeVisible()
@@ -65,7 +66,7 @@ test.describe('поиск в интернете', () => {
     await results(page).first().click()
     await dialog.getByLabel('Тип').selectOption('other')
     await dialog.getByRole('button', { name: 'Поставить на полку' }).click()
-    await expect(page.getByRole('list', { name: 'Прочитанное' })).toContainText('Другое')
+    await expect(await showList(page)).toContainText('Другое')
   })
 
   test('повторное добавление показывает «Уже на полке»', async ({ page }) => {
@@ -98,7 +99,7 @@ test.describe('поиск в интернете', () => {
     // Название подставилось из поиска
     await expect(dialog.getByLabel('Название')).toHaveValue('Неизвестная книга')
     await dialog.getByRole('button', { name: 'Поставить на полку' }).click()
-    await expect(page.getByRole('list', { name: 'Прочитанное' })).toContainText('Неизвестная книга')
+    await expect(await showList(page)).toContainText('Неизвестная книга')
   })
 })
 

@@ -1,3 +1,4 @@
+import { showList } from './helpers.ts'
 import { expect, test } from '@playwright/test'
 
 test('пустая полка предлагает добавить первую книгу', async ({ page }) => {
@@ -19,7 +20,7 @@ test('ручное добавление: запись появляется в с
   await dialog.getByRole('button', { name: 'Поставить на полку' }).click()
 
   await expect(dialog).toBeHidden()
-  const rows = page.getByRole('list', { name: 'Прочитанное' }).getByRole('listitem')
+  const rows = (await showList(page)).getByRole('listitem')
   await expect(rows).toHaveCount(1)
   await expect(rows.first()).toContainText('Мастер и Маргарита')
   await expect(rows.first()).toContainText('Михаил Булгаков')

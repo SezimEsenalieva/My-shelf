@@ -38,6 +38,20 @@ export const ru = {
   header: {
     add: 'Добавить',
   },
+  view: {
+    label: 'Вид',
+    shelf: 'Полка',
+    list: 'Список',
+  },
+  shelf: {
+    label: 'Полка',
+    spineLabel: (title: string, author: string | undefined, type: string) =>
+      [title, author, type].filter(Boolean).join(', '),
+  },
+  card: {
+    added: (date: Date) =>
+      `Добавлено ${date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}`,
+  },
   empty: {
     title: 'Добавьте первую прочитанную книгу',
     action: 'Добавить',
