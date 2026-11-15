@@ -10,16 +10,22 @@ import type { SearchResult } from '../../sources/types'
  */
 export async function addFromResult(result: SearchResult, type: ItemType): Promise<ShelfItem> {
   const cover = result.coverUrl ? await saveCover(result.coverUrl) : {}
-  return shelfRepository.add({
+  const item = {
     title: result.title,
     author: result.author,
     type,
     year: result.year,
     coverUrl: result.coverUrl,
-    coverBlob: cover.blob,
     spineColor: cover.color ?? result.coverColor ?? colorFromText(result.title),
     pageCount: result.pageCount,
     source: result.source,
     sourceId: result.sourceId,
-  })
+  }
+  if (!cover.blob) return shelfRepository.add(item)
+  try {
+    return await shelfRepository.add({ ...item, coverBlob: cover.blob })
+  } catch {
+    // Не получилось сохранить копию обложки — сохраняем запись хотя бы со ссылкой.
+    return shelfRepository.add(item)
+  }
 }

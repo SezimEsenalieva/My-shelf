@@ -42,6 +42,20 @@ describe('DexieShelfRepository', () => {
     expect(titles).toEqual(['Вторая', 'Первая'])
   })
 
+  it('сохраняет обложку и отдаёт её обратно как Blob', async () => {
+    const coverBlob = new Blob([new Uint8Array([1, 2, 3])], { type: 'image/jpeg' })
+    const item = await repo.add({ title: 'С обложкой', type: 'book', source: 'manual', coverBlob })
+
+    // В базе лежат байты, а не Blob
+    const stored = await repo.db.items.get(item.id)
+    expect(stored?.cover?.data.byteLength).toBe(3)
+    expect(stored).not.toHaveProperty('coverBlob')
+
+    const loaded = (await repo.get(item.id))?.coverBlob
+    expect(loaded?.type).toBe('image/jpeg')
+    expect(loaded?.size).toBe(3)
+  })
+
   it('изменяет и удаляет запись', async () => {
     const item = await repo.add({ title: 'Берсерк', type: 'book', source: 'manual' })
 
