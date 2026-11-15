@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { ManualAddForm } from '../features/add/ManualAddForm'
 import { ShelfList } from '../features/list/ShelfList'
+import { SearchPanel } from '../features/search/SearchPanel'
 import { t } from '../i18n'
 import { useShelfItems } from '../storage/useShelfItems'
 import { Sheet } from '../ui/Sheet'
@@ -45,8 +45,8 @@ export function App() {
         })}
       </footer>
 
-      <Sheet open={adding} title={t.add.title} onClose={() => setAdding(false)}>
-        <ManualAddForm onAdded={() => setAdding(false)} />
+      <Sheet open={adding} title={t.search.title} onClose={() => setAdding(false)} tall>
+        <SearchPanel items={items ?? []} onDone={() => setAdding(false)} />
       </Sheet>
     </div>
   )

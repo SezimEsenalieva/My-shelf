@@ -11,9 +11,8 @@ test('ручное добавление: запись появляется в с
 }) => {
   await page.goto('./')
   await page.getByRole('button', { name: 'Добавить', exact: true }).first().click()
-
-  const dialog = page.getByRole('dialog', { name: 'Добавить вручную' })
-  await expect(dialog).toBeVisible()
+  const dialog = page.getByRole('dialog', { name: 'Поиск' })
+  await dialog.getByRole('button', { name: 'Добавить вручную' }).click()
   await dialog.getByLabel('Название').fill('Мастер и Маргарита')
   await dialog.getByLabel('Автор').fill('Михаил Булгаков')
   await dialog.getByLabel('Тип').selectOption('book')
@@ -35,7 +34,8 @@ test('ручное добавление: запись появляется в с
 test('без названия запись не сохраняется', async ({ page }) => {
   await page.goto('./')
   await page.getByRole('button', { name: 'Добавить', exact: true }).first().click()
-  const dialog = page.getByRole('dialog', { name: 'Добавить вручную' })
+  const dialog = page.getByRole('dialog', { name: 'Поиск' })
+  await dialog.getByRole('button', { name: 'Добавить вручную' }).click()
   await dialog.getByRole('button', { name: 'Поставить на полку' }).click()
 
   await expect(dialog.getByText('Введите название')).toBeVisible()

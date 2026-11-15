@@ -1,0 +1,102 @@
+{
+  "data": {
+    "Page": {
+      "media": [
+        {
+          "id": 97662,
+          "format": "MANGA",
+          "countryOfOrigin": "CN",
+          "title": {
+            "romaji": "Quanzhi Gaoshou",
+            "english": "The King's Avatar",
+            "native": "全职高手"
+          },
+          "startDate": {
+            "year": 2015
+          },
+          "volumes": null,
+          "coverImage": {
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx97662-JZiQ2deDA7LO.jpg",
+            "medium": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/small/bx97662-JZiQ2deDA7LO.jpg",
+            "color": "#5dc9f1"
+          },
+          "staff": {
+            "edges": [
+              {
+                "role": "Story & Art",
+                "node": {
+                  "name": {
+                    "full": "Chang Pan Yong Zhe"
+                  }
+                }
+              },
+              {
+                "role": "Art",
+                "node": {
+                  "name": {
+                    "full": "D.Lan"
+                  }
+                }
+              },
+              {
+                "role": "Original Story",
+                "node": {
+                  "name": {
+                    "full": "Hudie Lan"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": 124618,
+          "format": "MANGA",
+          "countryOfOrigin": "CN",
+          "title": {
+            "romaji": "Quanzhi Gaoshou",
+            "english": "The King's Avatar",
+            "native": "全职高手"
+          },
+          "startDate": {
+            "year": 2020
+          },
+          "volumes": null,
+          "coverImage": {
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx124618-XT9mlNpOhHTf.jpg",
+            "medium": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/small/bx124618-XT9mlNpOhHTf.jpg",
+            "color": "#5d93e4"
+          },
+          "staff": {
+            "edges": [
+              {
+                "role": "Story",
+                "node": {
+                  "name": {
+                    "full": "Yuewen Manhua"
+                  }
+                }
+              },
+              {
+                "role": "Art",
+                "node": {
+                  "name": {
+                    "full": "TAKU"
+                  }
+                }
+              },
+              {
+                "role": "Original Story",
+                "node": {
+                  "name": {
+                    "full": "Hudie Lan"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

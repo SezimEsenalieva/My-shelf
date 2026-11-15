@@ -1,0 +1,21 @@
+{
+  "numFound": 6645,
+  "docs": [
+    {
+      "author_name": ["尾田栄一郎"],
+      "cover_i": 1020563,
+      "first_publish_year": 1997,
+      "key": "/works/OL8215661W",
+      "number_of_pages_median": 208,
+      "title": "ONE PIECE 1",
+      "subject": ["form:manga", "form:manga volume", "form:graphic novel"]
+    },
+    {
+      "author_name": ["Óne Píece"],
+      "cover_i": 12942980,
+      "first_publish_year": 2022,
+      "key": "/works/OL27887597W",
+      "title": "Óne Píece Coloring Book Gorgeous and Sweet Pics for Anime Fans an Amazing Coloring Book for Kids"
+    }
+  ]
+}

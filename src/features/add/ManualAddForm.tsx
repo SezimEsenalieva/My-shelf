@@ -6,11 +6,13 @@ import './ManualAddForm.css'
 
 interface ManualAddFormProps {
   onAdded: () => void
+  /** Название подставляется из строки поиска. */
+  initialTitle?: string
 }
 
 /** Форма ручного добавления: название (обязательно), автор, тип. */
-export function ManualAddForm({ onAdded }: ManualAddFormProps) {
-  const [title, setTitle] = useState('')
+export function ManualAddForm({ onAdded, initialTitle = '' }: ManualAddFormProps) {
+  const [title, setTitle] = useState(initialTitle)
   const [author, setAuthor] = useState('')
   const [type, setType] = useState<ItemType>('book')
   const [showTitleError, setShowTitleError] = useState(false)

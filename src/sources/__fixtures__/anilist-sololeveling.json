@@ -1,0 +1,157 @@
+{
+  "data": {
+    "Page": {
+      "media": [
+        {
+          "id": 105398,
+          "format": "MANGA",
+          "countryOfOrigin": "KR",
+          "title": {
+            "romaji": "Na Honjaman Level Up",
+            "english": "Solo Leveling",
+            "native": "나 혼자만 레벨업"
+          },
+          "startDate": {
+            "year": 2018
+          },
+          "volumes": 15,
+          "coverImage": {
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx105398-b673Vt5ZSuz3.jpg",
+            "medium": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/small/bx105398-b673Vt5ZSuz3.jpg",
+            "color": null
+          },
+          "staff": {
+            "edges": [
+              {
+                "role": "Story (chs 1-92)",
+                "node": {
+                  "name": {
+                    "full": "So-Ryeong Gi"
+                  }
+                }
+              },
+              {
+                "role": "Story (chs 93-201)",
+                "node": {
+                  "name": {
+                    "full": "Hyeon-Gun"
+                  }
+                }
+              },
+              {
+                "role": "Art (chs 1-179)",
+                "node": {
+                  "name": {
+                    "full": "Seong-Rak Jang"
+                  }
+                }
+              },
+              {
+                "role": "Art (chs 180-200)",
+                "node": {
+                  "name": {
+                    "full": "DISCIPLES"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": 201652,
+          "format": "MANGA",
+          "countryOfOrigin": "KR",
+          "title": {
+            "romaji": "Insaeng 2-hoechaui Teukgwoneun Pokpung Rebereop",
+            "english": "The Privilege of the Second Life is Power Leveling",
+            "native": "인생 2회차의 특권은 폭풍 레벨업"
+          },
+          "startDate": {
+            "year": 2024
+          },
+          "volumes": null,
+          "coverImage": {
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx201652-Y5UtAmjHjAQL.jpg",
+            "medium": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/small/bx201652-Y5UtAmjHjAQL.jpg",
+            "color": "#356be4"
+          },
+          "staff": {
+            "edges": [
+              {
+                "role": "Story",
+                "node": {
+                  "name": {
+                    "full": "Yi Cheng"
+                  }
+                }
+              },
+              {
+                "role": "Art",
+                "node": {
+                  "name": {
+                    "full": "Hetao"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": 179445,
+          "format": "MANGA",
+          "countryOfOrigin": "KR",
+          "title": {
+            "romaji": "Na Honjaman Level Up: Ragnarok",
+            "english": "Solo Leveling: Ragnarok",
+            "native": "나 혼자만 레벨업 : 라그나로크"
+          },
+          "startDate": {
+            "year": 2024
+          },
+          "volumes": null,
+          "coverImage": {
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx179445-ho0nb7baJ1a5.jpg",
+            "medium": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/small/bx179445-ho0nb7baJ1a5.jpg",
+            "color": "#5d86f1"
+          },
+          "staff": {
+            "edges": [
+              {
+                "role": "Story",
+                "node": {
+                  "name": {
+                    "full": "Do Dang"
+                  }
+                }
+              },
+              {
+                "role": "Art",
+                "node": {
+                  "name": {
+                    "full": "JIN"
+                  }
+                }
+              },
+              {
+                "role": "Art",
+                "node": {
+                  "name": {
+                    "full": "REDICE"
+                  }
+                }
+              },
+              {
+                "role": "Original Story",
+                "node": {
+                  "name": {
+                    "full": "Daul"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

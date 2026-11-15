@@ -1,0 +1,33 @@
+{
+  "numFound": 7,
+  "docs": [
+    {
+      "author_name": ["Михаил Булгаков"],
+      "cover_i": 12947486,
+      "first_publish_year": 1966,
+      "key": "/works/OL676009W",
+      "number_of_pages_median": 439,
+      "title": "Мастер и Маргарита",
+      "subject": [
+        "political fiction",
+        "Fiction",
+        "Russian Political fiction",
+        "Continental european fiction (fictional works by one author)",
+        "Moscow (russia), fiction",
+        "Fiction, humorous"
+      ]
+    },
+    {
+      "author_name": ["Valentin Bulgakov"],
+      "key": "/works/OL20329383W",
+      "title": "Мастер и Маргарита"
+    },
+    {
+      "author_name": ["Михаил Афанасьевич Булгаков"],
+      "first_publish_year": 1968,
+      "key": "/works/OL37376263W",
+      "number_of_pages_median": 219,
+      "title": "Мастер и Маргарита"
+    }
+  ]
+}
