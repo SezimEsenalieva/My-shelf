@@ -1,0 +1,93 @@
+/* Цвета светлой темы. Тёмная тема переопределяет их ниже. */
+:root {
+  --bg: #f4ede2;
+  --text: #2b2520;
+  --text-muted: #6f645a;
+  --wood: #8a5a36;
+  --wood-dark: #6b4426;
+
+  color-scheme: light dark;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, 'Segoe UI', Roboto, sans-serif;
+  /* 16px и больше — чтобы iPhone не увеличивал страницу при фокусе в поле ввода */
+  font-size: 16px;
+  line-height: 1.4;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1814;
+    --text: #f1e9de;
+    --text-muted: #b3a797;
+    --wood: #5e3d24;
+    --wood-dark: #442b18;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  /* Отступы под чёлку и нижнюю полоску iPhone */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
+}
+
+.placeholder {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.placeholder h1 {
+  margin: 0 0 16px;
+  font-size: 2rem;
+}
+
+.placeholder__shelf {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  padding: 0 24px;
+  border-bottom: 10px solid var(--wood);
+  box-shadow: 0 6px 0 -2px var(--wood-dark);
+}
+
+.placeholder__shelf span {
+  display: block;
+  border-radius: 3px 3px 0 0;
+}
+
+.placeholder__title {
+  margin: 24px 0 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.placeholder__subtitle,
+.placeholder__build {
+  margin: 0;
+  max-width: 32ch;
+  color: var(--text-muted);
+}
+
+.placeholder__build {
+  font-size: 0.85rem;
+}
