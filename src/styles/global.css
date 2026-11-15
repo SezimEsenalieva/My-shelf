@@ -11,6 +11,7 @@
   --danger: #b3261e;
   --badge-bg: #e8ddcd;
   --warning-bg: #f6e2b8;
+  --wood-light: #a8754b;
   --wood: #8a5a36;
   --wood-dark: #6b4426;
   --bookcase-back: #e6d6bf;
@@ -38,6 +39,7 @@
     --danger: #f2a49b;
     --badge-bg: #3a3129;
     --warning-bg: #4a3a1c;
+    --wood-light: #7a5233;
     --wood: #5e3d24;
     --wood-dark: #442b18;
     --bookcase-back: #2a2119;
@@ -121,6 +123,32 @@ button {
 .icon-button--accent {
   background: var(--accent);
   color: var(--accent-text);
+}
+
+/* Сегментированный переключатель (как в iOS): «Полка / Список», «Всё / Книги / …» */
+.segmented {
+  display: flex;
+  padding: 3px;
+  border-radius: 10px;
+  background: var(--badge-bg);
+}
+
+.segmented__option {
+  flex: 1 1 auto;
+  min-height: 36px;
+  padding: 6px 8px;
+  white-space: nowrap;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.segmented__option[aria-checked='true'] {
+  background: var(--surface);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.15);
 }
 
 :focus-visible {

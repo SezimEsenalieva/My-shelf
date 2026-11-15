@@ -6,11 +6,26 @@
 
 .shelf-list__row {
   display: flex;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  background: none;
+  color: inherit;
+  text-align: left;
   align-items: center;
   gap: 14px;
   min-height: 88px;
   padding: 10px 0;
-  border-bottom: 1px solid var(--border);
+}
+
+.shelf-list__cover {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Миниатюра, чья обложка открыта, «улетела» в карточку */
+.shelf-list__row[data-open] .shelf-list__cover {
+  visibility: hidden;
 }
 
 .shelf-list__info {

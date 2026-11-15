@@ -99,32 +99,6 @@
   margin-top: 8px;
 }
 
-/* Переключатель «Всё / Книги / Комиксы и манга» */
-.segmented {
-  display: flex;
-  padding: 3px;
-  border-radius: 10px;
-  background: var(--badge-bg);
-}
-
-.segmented__option {
-  flex: 1 1 auto;
-  min-height: 36px;
-  padding: 6px 8px;
-  white-space: nowrap;
-  border: none;
-  border-radius: 8px;
-  background: transparent;
-  color: var(--text);
-  font-size: 0.9rem;
-}
-
-.segmented__option[aria-checked='true'] {
-  background: var(--surface);
-  font-weight: 600;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.15);
-}
-
 /* Экран подтверждения */
 .confirm__cover {
   display: flex;

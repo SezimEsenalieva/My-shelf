@@ -27,6 +27,10 @@
   color: var(--text-muted);
 }
 
+.app__views {
+  margin-bottom: 14px;
+}
+
 .app__loading {
   color: var(--text-muted);
   text-align: center;

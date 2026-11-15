@@ -1,0 +1,127 @@
+/* Шкаф: задняя стенка + полки, нарисованные градиентом через каждые --row пикселей.
+   Каждый «слот» имеет ровно высоту полки, поэтому корешки всегда стоят на доске. */
+.bookcase {
+  --row: 214px; /* 184 px самый высокий корешок + запас сверху + доска */
+  --board: 16px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  column-gap: 2px;
+  min-height: calc(var(--row) * 3);
+  border: 10px solid var(--wood);
+  border-top-width: 12px;
+  border-radius: 4px;
+  background:
+    /* тень под каждой доской на задней стенке */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 calc(var(--row) - var(--board) - 10px),
+      rgb(0 0 0 / 0.12) calc(var(--row) - var(--board)),
+      transparent calc(var(--row) - var(--board))
+    ),
+    /* сами доски: светлая кромка сверху, тёмная снизу */
+    repeating-linear-gradient(
+        to bottom,
+        transparent 0 calc(var(--row) - var(--board)),
+        var(--wood-light) calc(var(--row) - var(--board)),
+        var(--wood) calc(var(--row) - var(--board) + 4px),
+        var(--wood-dark) var(--row)
+      ),
+    var(--bookcase-back);
+  box-shadow:
+    inset 0 0 18px rgb(0 0 0 / 0.25),
+    0 4px 12px rgb(0 0 0 / 0.15);
+}
+
+.bookcase__slot {
+  display: flex;
+  align-items: flex-end;
+  height: var(--row);
+  padding-bottom: var(--board);
+}
+
+.spine {
+  position: relative;
+  display: flex;
+  flex-direction: column; /* в вертикальном письме — колонки справа налево */
+  justify-content: center;
+  gap: 1px;
+  padding: 10px 1px;
+  border: none;
+  border-radius: 2px 2px 1px 1px;
+  writing-mode: vertical-rl;
+  overflow: hidden;
+  /* объём: тень слева, блик, тень справа */
+  background-image: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 0.28) 0,
+    rgb(255 255 255 / 0.18) 16%,
+    rgb(255 255 255 / 0.04) 34%,
+    transparent 60%,
+    rgb(0 0 0 / 0.22) 100%
+  );
+  box-shadow:
+    1px 0 2px rgb(0 0 0 / 0.35),
+    inset 0 1px 0 rgb(255 255 255 / 0.15);
+  transition: transform 120ms ease-out;
+}
+
+/* Полоски-«тиснение» сверху и снизу, как на настоящих корешках */
+.spine::before,
+.spine::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-top: 1px solid rgb(255 255 255 / 0.18);
+  border-bottom: 1px solid rgb(0 0 0 / 0.18);
+}
+
+.spine::before {
+  top: 6px;
+}
+
+.spine::after {
+  bottom: 6px;
+}
+
+.spine:active {
+  transform: translateY(-6px);
+}
+
+/* Корешок, чья обложка открыта, временно «уходит» с полки */
+.spine[data-open] {
+  visibility: hidden;
+}
+
+.spine__title,
+.spine__author {
+  max-block-size: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.spine__title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.spine__author {
+  font-size: 0.6rem;
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spine {
+    transition: none;
+  }
+}
