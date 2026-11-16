@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, type ReactNode } from 'react'
+import { useEffect, useLayoutEffect, useRef, type ReactNode, type RefObject } from 'react'
 import { t } from '../i18n'
 import './Sheet.css'
 
@@ -32,6 +32,8 @@ export function Sheet({ open, title, onClose, children, tall = false }: SheetPro
     if (!open && dialog.open) dialog.close()
   }, [open])
 
+  useFollowVisualViewport(ref, open)
+
   return (
     <dialog
       ref={ref}
@@ -64,4 +66,29 @@ export function Sheet({ open, title, onClose, children, tall = false }: SheetPro
       )}
     </dialog>
   )
+}
+
+/**
+ * На iPhone клавиатура не уменьшает страницу, а закрывает её низ, и Safari сдвигает
+ * видимую область. Поэтому панель подстраивается под видимую часть экрана (visualViewport):
+ * верх панели — у верха видимой области, высота — до клавиатуры.
+ */
+function useFollowVisualViewport(ref: RefObject<HTMLDialogElement | null>, open: boolean) {
+  useEffect(() => {
+    const dialog = ref.current
+    const viewport = window.visualViewport
+    if (!open || !dialog || !viewport) return
+
+    const update = () => {
+      dialog.style.setProperty('--vv-top', `${viewport.offsetTop}px`)
+      dialog.style.setProperty('--vv-height', `${viewport.height}px`)
+    }
+    update()
+    viewport.addEventListener('resize', update)
+    viewport.addEventListener('scroll', update)
+    return () => {
+      viewport.removeEventListener('resize', update)
+      viewport.removeEventListener('scroll', update)
+    }
+  }, [ref, open])
 }

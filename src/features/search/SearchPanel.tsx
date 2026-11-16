@@ -131,17 +131,7 @@ function SearchStatus({ state }: { state: ReturnType<typeof useCatalogSearch> })
     if (state.offline) text = t.search.offline
     else if (state.results.length === 0) text = t.search.nothingFound
   }
-  const failedNote =
-    state.status === 'done' && !state.offline && state.failed.length > 0
-      ? t.search.failed(state.failed.map((s) => t.sources[s]).join(', '))
-      : undefined
-
-  return (
-    <div aria-live="polite">
-      {text && <p className="search__status">{text}</p>}
-      {failedNote && <p className="search__note">{failedNote}</p>}
-    </div>
-  )
+  return <div aria-live="polite">{text && <p className="search__status">{text}</p>}</div>
 }
 
 export function BackButton({ onClick }: { onClick: () => void }) {

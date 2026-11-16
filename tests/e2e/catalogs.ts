@@ -18,6 +18,12 @@ function openLibraryFor(q: string): unknown {
   return EMPTY_OL
 }
 
+function fantLabFor(q: string): unknown {
+  if (q.includes('мастер')) return fixture('fantlab-master.json')
+  if (q.includes('скорбь')) return fixture('fantlab-satana.json')
+  return []
+}
+
 function aniListFor(q: string): unknown {
   if (q.includes('one piece')) return fixture('anilist-onepiece.json')
   if (q.includes('solo leveling')) return fixture('anilist-sololeveling.json')
@@ -41,6 +47,11 @@ export async function mockCatalogs(page: Page, options: CatalogOptions = {}): Pr
   await page.route('https://openlibrary.org/search.json**', (route) => {
     const q = new URL(route.request().url()).searchParams.get('q')?.toLowerCase() ?? ''
     return route.fulfill(json(openLibraryFor(q)))
+  })
+
+  await page.route('https://api.fantlab.ru/**', (route) => {
+    const q = new URL(route.request().url()).searchParams.get('q')?.toLowerCase() ?? ''
+    return route.fulfill(json(fantLabFor(q)))
   })
 
   await page.route('https://graphql.anilist.co/**', (route) => {
@@ -69,19 +80,21 @@ export async function mockCatalogs(page: Page, options: CatalogOptions = {}): Pr
 
   // Картинки обложек: маленький однотонный PNG, чтобы проверить сохранение копии и цвет.
   const cover = solidPng(40, 60, [40, 90, 160])
-  await page.route(/covers\.openlibrary\.org|s4\.anilist\.co|books\.google\.com/, (route) =>
-    route.fulfill({
-      status: 200,
-      contentType: 'image/png',
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      body: cover,
-    }),
+  await page.route(
+    /covers\.openlibrary\.org|s4\.anilist\.co|books\.google\.com|fantlab\.ru\/images/,
+    (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: 'image/png',
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        body: cover,
+      }),
   )
 }
 
 /** Отключаем «интернет»: все запросы к каталогам падают с сетевой ошибкой. */
 export async function goOffline(page: Page): Promise<void> {
-  await page.route(/openlibrary\.org|anilist\.co|googleapis\.com/, (route) =>
+  await page.route(/openlibrary\.org|anilist\.co|googleapis\.com|fantlab\.ru/, (route) =>
     route.abort('internetdisconnected'),
   )
 }
