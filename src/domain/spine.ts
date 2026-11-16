@@ -53,3 +53,25 @@ export function spineSize(item: Pick<ShelfItem, 'id' | 'type' | 'pageCount'>): S
       : between(range.width, seededRandom(item.id, 2))
   return { height, width }
 }
+
+/**
+ * Размер шрифта названия на корешке, px. Как на настоящих книгах: длинное название
+ * набирают мельче, чтобы оно поместилось, но не мельче 8 px; и не крупнее, чем позволяет
+ * толщина корешка.
+ */
+export function titleFontSize(options: {
+  title: string
+  /** Длина корешка вдоль надписи, px. */
+  length: number
+  /** Толщина корешка поперёк надписи, px. */
+  thickness: number
+  /** Сколько места вдоль корешка занимают автор и украшения, px. */
+  reserved: number
+}): number {
+  const { title, length, thickness, reserved } = options
+  const CHAR_WIDTH = 0.56 // средняя ширина буквы в долях размера шрифта
+  const available = Math.max(0, length - reserved)
+  const byLength = available / (Math.max(1, title.trim().length) * CHAR_WIDTH)
+  const byThickness = thickness * 0.62
+  return Math.floor(Math.max(8, Math.min(13, byLength, byThickness)) * 10) / 10
+}

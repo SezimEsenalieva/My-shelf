@@ -96,11 +96,7 @@ export function App() {
 function EmptyShelf({ onAdd }: { onAdd: () => void }) {
   return (
     <div className="empty">
-      <div className="empty__bookcase" aria-hidden="true">
-        <div className="empty__board" />
-        <div className="empty__board" />
-        <div className="empty__board" />
-      </div>
+      <div className="bookcase empty__bookcase" aria-hidden="true" />
       <p className="empty__title">{t.empty.title}</p>
       <button type="button" className="button button--primary" onClick={onAdd}>
         + {t.empty.action}

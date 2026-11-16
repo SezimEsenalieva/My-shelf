@@ -54,22 +54,8 @@
 }
 
 .empty__bookcase {
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
-  width: min(100%, 280px);
-  padding: 56px 12px 8px;
-  border: 10px solid var(--wood);
-  border-bottom-width: 14px;
-  border-radius: 4px;
-  background: var(--bookcase-back);
-}
-
-.empty__board {
-  height: 10px;
-  border-radius: 2px;
-  background: linear-gradient(var(--wood), var(--wood-dark));
-  box-shadow: 0 3px 4px rgb(0 0 0 / 0.25);
+  width: min(100%, 300px);
+  min-height: calc(var(--row) * 2);
 }
 
 .empty__title {

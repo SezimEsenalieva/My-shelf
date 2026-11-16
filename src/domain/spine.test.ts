@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { MAX_SPINE_HEIGHT, seededRandom, spineSize } from './spine'
+import { MAX_SPINE_HEIGHT, seededRandom, spineSize, titleFontSize } from './spine'
 
 describe('spineSize', () => {
   it('для одной записи размер всегда одинаковый', () => {
@@ -44,5 +44,24 @@ describe('seededRandom', () => {
     for (const v of values) expect(v).toBeGreaterThanOrEqual(0)
     for (const v of values) expect(v).toBeLessThan(1)
     expect(new Set(values).size).toBe(4)
+  })
+})
+
+describe('titleFontSize', () => {
+  const base = { length: 180, thickness: 40, reserved: 40 }
+
+  it('короткое название — крупно, но не больше 13 px', () => {
+    expect(titleFontSize({ ...base, title: 'Дюна' })).toBe(13)
+  })
+
+  it('длинное название — мельче', () => {
+    const short = titleFontSize({ ...base, title: 'Война и мир' })
+    const long = titleFontSize({ ...base, title: 'Гарри Поттер и философский камень' })
+    expect(long).toBeLessThan(short)
+  })
+
+  it('не мельче 8 px и не толще корешка', () => {
+    expect(titleFontSize({ ...base, title: 'А'.repeat(200) })).toBe(8)
+    expect(titleFontSize({ ...base, thickness: 14, title: 'Maus' })).toBeLessThanOrEqual(14 * 0.62)
   })
 })
