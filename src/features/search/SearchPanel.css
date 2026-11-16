@@ -29,15 +29,10 @@
   font-size: 1.1rem;
 }
 
-.search__status,
-.search__note {
+.search__status {
   margin: 8px 0 0;
   color: var(--text-muted);
   text-align: center;
-}
-
-.search__note {
-  font-size: 0.85rem;
 }
 
 .search__results {

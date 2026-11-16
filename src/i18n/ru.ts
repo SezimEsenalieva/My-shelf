@@ -75,7 +75,6 @@ export const ru = {
     searching: 'Ищу…',
     nothingFound: 'Ничего не нашлось',
     offline: 'Нет подключения. Поиск заработает, когда появится интернет.',
-    failed: (names: string) => `Не ответили: ${names}`,
     resultsLabel: 'Результаты поиска',
     manualAdd: 'Добавить вручную',
     back: 'Назад',

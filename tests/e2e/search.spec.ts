@@ -29,8 +29,8 @@ test.describe('поиск в интернете', () => {
     await expect(first).toContainText('Михаил Булгаков')
     await expect(first).toContainText('Книга')
     await expect(first).toContainText('FantLab')
-    // Google Books в тестах отвечает 429 — остальные результаты всё равно видны.
-    await expect(dialog.getByText('Не ответили: Google Books')).toBeVisible()
+    // Google Books в тестах отвечает 429 — остальные результаты всё равно видны, без лишних подписей.
+    await expect(dialog.getByText(/Не ответили/)).toHaveCount(0)
 
     await first.click()
     await expect(dialog.getByRole('heading', { name: 'Мастер и Маргарита' })).toBeVisible()
