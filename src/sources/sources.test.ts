@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { anilist, mapAniList } from './anilist'
+import { mapFantLab } from './fantlab'
 import { mapGoogleBooks } from './googleBooks'
 import { mapOpenLibrary } from './openLibrary'
 import { interleave, searchAll } from './searchAll'
@@ -10,6 +11,8 @@ import gbMixed from './__fixtures__/googlebooks-mixed.json'
 import alOnePiece from './__fixtures__/anilist-onepiece.json'
 import alSolo from './__fixtures__/anilist-sololeveling.json'
 import alKing from './__fixtures__/anilist-kingsavatar.json'
+import flSatana from './__fixtures__/fantlab-satana.json'
+import flMaster from './__fixtures__/fantlab-master.json'
 
 // Ответы каталогов сохранены заранее (папка __fixtures__), поэтому тесты не ходят в интернет.
 
@@ -29,6 +32,31 @@ describe('Open Library', () => {
 
   it('манга определяется по темам', () => {
     expect(mapOpenLibrary(olOnePiece)[0]?.type).toBe('manga')
+  })
+})
+
+describe('FantLab', () => {
+  it('«Скорбь Сатаны» — книга на русском с обложкой (ответ-список)', () => {
+    expect(mapFantLab(flSatana)[0]).toMatchObject({
+      source: 'fantlab',
+      title: 'Скорбь Сатаны',
+      author: 'Мария Корелли',
+      year: 1895,
+      type: 'book',
+      coverUrl: 'https://fantlab.ru/images/editions/big/39429',
+    })
+  })
+
+  it('«Мастер и Маргарита» — ответ в поле matches, статьи о книге отсеяны', () => {
+    const results = mapFantLab(flMaster)
+    expect(results[0]).toMatchObject({ title: 'Мастер и Маргарита', author: 'Михаил Булгаков' })
+    expect(results).toHaveLength(1)
+  })
+
+  it('без обложки ссылки нет', () => {
+    expect(
+      mapFantLab([{ work_id: 1, rusname: 'Без обложки', pic_edition_id_auto: 0 }])[0]?.coverUrl,
+    ).toBeUndefined()
   })
 })
 

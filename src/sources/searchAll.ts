@@ -1,10 +1,11 @@
 import { anilist } from './anilist'
+import { fantLab } from './fantlab'
 import { googleBooks } from './googleBooks'
 import { openLibrary } from './openLibrary'
 import type { SearchResult, SearchScope, SourceAdapter } from './types'
 
 /** Все подключённые каталоги. Порядок = приоритет при смешивании результатов. */
-export const ALL_SOURCES: readonly SourceAdapter[] = [anilist, openLibrary, googleBooks]
+export const ALL_SOURCES: readonly SourceAdapter[] = [anilist, fantLab, openLibrary, googleBooks]
 
 export interface SearchOutcome {
   results: SearchResult[]

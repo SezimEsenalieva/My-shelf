@@ -7,7 +7,7 @@ export const ITEM_TYPES = ['book', 'comic', 'manga', 'manhwa', 'manhua', 'ranobe
 export type ItemType = (typeof ITEM_TYPES)[number]
 
 /** Откуда взята запись: из каталога или добавлена вручную. */
-export type ItemSource = 'manual' | 'openlibrary' | 'googlebooks' | 'anilist'
+export type ItemSource = 'manual' | 'openlibrary' | 'googlebooks' | 'anilist' | 'fantlab'
 
 /** Одна запись на полке. */
 export interface ShelfItem {

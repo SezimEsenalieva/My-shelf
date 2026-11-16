@@ -19,6 +19,7 @@ const sources: Record<ItemSource, string> = {
   openlibrary: 'Open Library',
   googlebooks: 'Google Books',
   anilist: 'AniList',
+  fantlab: 'FantLab',
 }
 
 const scopes: Record<SearchScope, string> = {

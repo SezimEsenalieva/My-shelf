@@ -1,0 +1,64 @@
+{
+  "matches": [
+    {
+      "work_id": 9164,
+      "name": "",
+      "rusname": "Мастер и Маргарита",
+      "altname": "",
+      "autor_rusname": "Михаил Булгаков",
+      "all_autor_name": "",
+      "all_autor_rusname": "Михаил Булгаков",
+      "year": 1967,
+      "name_eng": "novel",
+      "name_show_im": "роман",
+      "work_type_id": 1,
+      "pic_edition_id": 0,
+      "pic_edition_id_auto": 31603
+    },
+    {
+      "work_id": 219883,
+      "name": "",
+      "rusname": "Реквием",
+      "altname": "Реквием (\"Мастер и Маргарита\")",
+      "autor_rusname": "Всеволод Сахаров",
+      "all_autor_name": "",
+      "all_autor_rusname": "Всеволод Сахаров",
+      "year": 1999,
+      "name_eng": "article",
+      "name_show_im": "статья",
+      "work_type_id": 12,
+      "pic_edition_id": 0,
+      "pic_edition_id_auto": 0
+    },
+    {
+      "work_id": 1901550,
+      "name": "",
+      "rusname": "Обручение света и тьмы. О романе «Мастер и Маргарита» и Михаиле Булгакове",
+      "altname": "Обручение света и тьмы. О романе «Мастер и Маргарита» и о Михаиле Булгакове",
+      "autor_rusname": "Анатолий Королёв",
+      "all_autor_name": "",
+      "all_autor_rusname": "Анатолий Королёв",
+      "year": 2013,
+      "name_eng": "essay",
+      "name_show_im": "эссе",
+      "work_type_id": 11,
+      "pic_edition_id": 0,
+      "pic_edition_id_auto": 0
+    },
+    {
+      "work_id": 185454,
+      "name": "",
+      "rusname": "«Мастер и Маргарита» М. Булгакова: прощание и полёт",
+      "altname": "Прощание и полёт",
+      "autor_rusname": "Всеволод Сахаров",
+      "all_autor_name": "",
+      "all_autor_rusname": "Всеволод Сахаров",
+      "year": 1995,
+      "name_eng": "article",
+      "name_show_im": "статья",
+      "work_type_id": 12,
+      "pic_edition_id": 0,
+      "pic_edition_id_auto": 0
+    }
+  ]
+}

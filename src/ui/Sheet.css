@@ -1,13 +1,26 @@
 .sheet {
-  /* <dialog> на весь экран, сама панель прижата к низу */
+  /* <dialog> занимает видимую часть экрана (над клавиатурой), панель прижата к низу.
+     --vv-top и --vv-height выставляет Sheet.tsx по window.visualViewport. */
+  position: fixed;
+  top: var(--vv-top, 0px);
+  right: 0;
+  bottom: auto;
+  left: 0;
   width: 100%;
   max-width: 560px;
-  max-height: 100dvh;
-  margin: auto auto 0;
+  height: var(--vv-height, 100dvh);
+  max-height: none;
+  margin: 0 auto;
   padding: 0;
   border: none;
   background: transparent;
   color: var(--text);
+}
+
+.sheet[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .sheet::backdrop {
@@ -24,7 +37,7 @@
 .sheet__panel--tall {
   display: flex;
   flex-direction: column;
-  height: calc(100dvh - 24px - env(safe-area-inset-top));
+  height: calc(var(--vv-height, 100dvh) - 12px - env(safe-area-inset-top));
 }
 
 .sheet__header {

@@ -28,7 +28,7 @@ test.describe('поиск в интернете', () => {
     await expect(first).toContainText('Мастер и Маргарита')
     await expect(first).toContainText('Михаил Булгаков')
     await expect(first).toContainText('Книга')
-    await expect(first).toContainText('Open Library')
+    await expect(first).toContainText('FantLab')
     // Google Books в тестах отвечает 429 — остальные результаты всё равно видны.
     await expect(dialog.getByText('Не ответили: Google Books')).toBeVisible()
 
@@ -101,6 +101,17 @@ test.describe('поиск в интернете', () => {
     await dialog.getByRole('button', { name: 'Поставить на полку' }).click()
     await expect(await showList(page)).toContainText('Неизвестная книга')
   })
+})
+
+test('русская книга из FantLab: «Скорбь Сатаны»', async ({ page }) => {
+  await mockCatalogs(page)
+  await page.goto('./')
+  const dialog = await openSearch(page)
+  await dialog.getByRole('searchbox').fill('Скорбь Сатаны')
+  const first = results(page).first()
+  await expect(first).toContainText('Скорбь Сатаны')
+  await expect(first).toContainText('Мария Корелли')
+  await expect(first).toContainText('FantLab')
 })
 
 test('без интернета поиск пишет «Нет подключения»', async ({ page }) => {
